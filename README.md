@@ -1,8 +1,8 @@
-_Ubuntu is a fantastic operating system for developers.
+*Ubuntu is a fantastic operating system for developers.*
 
-The operating system is great for setting up toolchains, running developer tasks and all-round security. It can however struggle to carry out day-to-to day tasks such as sharing your screen on a zoom call. Disabling Wayland and enabling Xorg (X11) is a solution to get screensharing working.
+*The operating system is great for setting up toolchains, running developer tasks and all-round security. It can however struggle to carry out day-to-to day tasks such as sharing your screen on a zoom call. Disabling Wayland and enabling Xorg (X11) is a solution to get screensharing working.*
 
-The aim of the wayland_x11_switch script is to remove the friction of switching between the two._
+*The aim of the wayland_x11_switch script is to remove the friction of switching between the two.*
 
 **The Problem**
 
@@ -18,25 +18,25 @@ Disabling Wayland from the command line and enabling XOrg is explained by this [
 
 Check which display system is currently being used by entering the following command in the terminal.
 
-'echo $XDG_SESSION_TYPE'
+`echo $XDG_SESSION_TYPE`
 
 If the result of you running this command is Wayland, then that is the system you are using.
 
 One way to be able to use screensharing, is to disable Wayland and enable xorg (or x11). To carry this out navigate to file which dictates this by entering the following command in the terminal
 
-'sudo nano /etc/gdm3/custom.conf'
+`sudo nano /etc/gdm3/custom.conf`
 
 Uncomment the following line.
 
-'WaylandEnable=false'
+`WaylandEnable=false`
 
 Now after restarting your computer, re-entering the folling command will show which display system is now being used.
 
-'echo $XDG_SESSION_TYPE'
+`echo $XDG_SESSION_TYPE`
 
 If x11 is still not being shown, you can run the following command.
 
-'sudo systemctl restart gdm'.
+`sudo systemctl restart gdm`
 
 This solution is great is great for switching display systems on a rare occasion - however for me, one of the projects I run, relies on a docker environment that is dependent on Wayland.
 
@@ -57,24 +57,24 @@ I wrote a script that carries out the following in the command line.
 
 To execute the script, navigate to the directory wayland_x11_switch. You can do this by executing the following command in the terminal.
 
-'cd ~/wayland_x11_switch'
+`cd ~/wayland_x11_switch`
 
 Then run the command in sudo. In order for this script to run correctly, you may have to run it while preserving the user environment by sending "-E" after sudo, as outline below.
 
-'sudo -E ./wayland_x11_switch.sh'
+`sudo -E ./wayland_x11_switch.sh`
 
 If you want to try it without preserving the environment first, then send the following command instead.
 
-'sudo ./wayland_x11_switch.sh'
+`sudo ./wayland_x11_switch.sh`
 
 If your display system is Wayland, the program will return the following message.
 
-'Switch to Xorg (X11)? This will disable Wayland. (y/n):'
+`Switch to Xorg (X11)? This will disable Wayland. (y/n):`
 
 If you respond with "y", the program will return with the following message.
 
-'''Switched to Xorg. Please reboot your system for the change to take effect.
-Would you like to reboot now? (y/n):'''
+``Switched to Xorg. Please reboot your system for the change to take effect.
+Would you like to reboot now? (y/n):``
 
 If you respond with "y" the system will restart.
 
