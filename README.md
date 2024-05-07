@@ -1,6 +1,6 @@
-*Ubuntu is a fantastic operating system for developers.*
+*Ubuntu 22.04 LTS is an operating system that does not support video call sharing by default.*
 
-*The operating system is great for setting up toolchains, running developer tasks and all-round security. It can however struggle to carry out day-to-to day tasks such as sharing your screen on a zoom call. Disabling Wayland and enabling Xorg (X11) is a solution to get screensharing working.*
+*The operating system runs a display system by default called Wayland, which does not support screen-sharing on zoom calls. Xorg is another display system that does support it, however Linux pushes Wayland as it's default system. Disabling Wayland and enabling Xorg (X11) is a solution to get screensharing working.*
 
 *The aim of the wayland_x11_switch script is to remove the friction of switching between the two.*
 
